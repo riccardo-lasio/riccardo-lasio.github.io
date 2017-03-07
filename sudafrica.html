@@ -1,0 +1,153 @@
+
+<html>
+<head>
+	<link rel="stylesheet" href="css/monitor.css" media="screen">
+	<link href="https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro" rel="stylesheet"> 
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+	<script type="text/javascript">
+	var slideIndex = 1;
+	showSlides(slideIndex);
+
+	function plusSlides(n) {
+		showSlides(slideIndex += n);
+	}
+
+	function currentSlide(n) {
+		showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+		var i;
+		var slides = document.getElementsByClassName("mySlides");
+		var dots = document.getElementsByClassName("dot");
+		if (n > slides.length) {slideIndex = 1} 
+		if (n < 1) {slideIndex = slides.length}
+		for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none"; 
+		}
+		for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+		}
+		slides[slideIndex-1].style.display = "block"; 
+		dots[slideIndex-1].className += " active";
+	}
+	</script>
+	<script type="text/javascript">
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(mappa_gmaps);
+			}
+		else{
+			alert('il browser in uso non supporta la geolocalizzazione');
+			}
+		function mappa_gmaps(map){
+			var 
+			posizione=new google.maps.LatLng(-30.559482, 22.937506),
+			opzioni={
+				zoom:7,
+				center:posizione,
+				mapTypeId:google.maps.MapTypeId.ROADMAP
+				},
+			riquadro=document.getElementById("mappa-google"),
+			mia_mappa=new google.maps.Map(riquadro,opzioni),
+			marker=new google.maps.Marker({
+				position:posizione,
+				map: mia_mappa,
+				title: 'voi siete qui'
+				});
+			}
+	</script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js">
+	</script>
+	<script type="text/javascript">
+	swfobject.embedSWF("http://www.youtube.com/v/j6vyfIle0ts", "youtube_player1", "640", "385", "9.0.0");
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/js.js">
+	</script>
+</head>
+	
+<body>
+<div id="container">
+	<header id="header">
+		<hgroup>
+			<h1>I diari di viaggio</h1>
+			<h2>A spasso per il mondo alla scoperta di nuove culture</h2>
+			<a href="index.html" id="logo"><img src="img/logo.png" alt="Logo" /></a>
+		</hgroup>
+		
+		 <ul class="topnav" id="myTopnav">
+		  <li><a href="index.html">Home</a></li>
+		  <li><a href="news.html">News</a></li>
+		  <li><a href="index.html#dove-siamo">Dove siamo</a></li>
+		  <li><a href="index.html#video">Video</a></li>
+		  <li class="icon">
+		    <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+		  </li>
+		</ul>
+		
+	</header>
+
+		
+<div id="main-content">
+	
+		<section>
+		<h2>SudAfrica</h2>
+		</section>
+
+<div class="slideshow-container">
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="img/sudafrica1.png" style="width:100%">
+    <div class="text"><h3><font color="#00FFFF"><h3>SudAfrica</h3></font></h3></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="img/sudafrica2.jpg" style="width:100%">
+    <div class="text"><font color="#00FFFF"><h3>SudAfrica</h3></font></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="img/sudafrica3.jpg" style="width:100%">
+    <div class="text"><font color="#00FFFF"><h3>SudAfrica</h3></font></div>
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+<section id="video" class="clearfix">
+	<div id="article">
+	<div id="mappa">
+			<div id="mappa-google">Attendere prego...</div>
+	</div>
+			<div id="youtube_player1">
+				per visualizzare il video occorre FlashPlayer 9 e javascript abilitati!
+			</div>
+	</div>
+	
+	
+</section>	
+	
+</section>	
+	<section id="form" class="clearfix">
+		<div id="form-txt">
+			<h3>Contattaci</h3>
+				<form action="mailto:viaggi@mail.it">
+					Nome: <input type="text" name="Nome" value=""><br><br>
+					Cognome: <input type="text" name="Cognome" value=""><br><br>
+					Messaggio:<br> <textarea rows="5"></textarea><br><br>
+					<input type="submit" value="invia">
+				</form>
+		</div>
+	</section>
+</body>
+</html>
